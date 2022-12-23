@@ -3,7 +3,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
 import Table from 'react-bootstrap/Table';
 import { useEffect } from 'react';
-import API from '../api/api.js';
+import API from '../../api/api.js';
 import moment from 'moment';
 
 const UsersTable = (props) => {

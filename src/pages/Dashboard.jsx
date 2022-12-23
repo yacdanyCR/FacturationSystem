@@ -1,4 +1,4 @@
-import { DashboardDetails, Navbar, Sidebar } from '../components';
+import { Sidebar, Navbar, DashboardDetails } from '../components/DashBoardComponents'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
