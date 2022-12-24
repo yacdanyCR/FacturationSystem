@@ -3,6 +3,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import ProductPage from './ProductPage';
 
 const Dashboard = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +26,10 @@ const Dashboard = () => {
 				<Col md={isOpen ? 10 : 12} sm={12}>
 					<Container>
 						<Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
-						<DashboardDetails />
+						<Routes>
+							<Route path='/add/product' element={<ProductPage />} />
+							<Route path='/' element={<DashboardDetails />} />
+						</Routes>
 					</Container>
 				</Col>
 			</Row>

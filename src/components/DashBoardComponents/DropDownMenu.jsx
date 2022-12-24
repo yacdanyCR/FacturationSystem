@@ -3,6 +3,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import ListGroup from 'react-bootstrap/ListGroup';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { Link } from 'react-router-dom';
 
 const DropDownMenu = ({ title, options }) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,9 +12,8 @@ const DropDownMenu = ({ title, options }) => {
 		<>
 			<Dropdown className={`d-flex flex-column fw-bold`}>
 				<div
-					className={`p-3 d-flex justify-content-between rounded-3 cursor-pointer ${
-						isMenuOpen ? 'text-bg-success' : 'text-muted'
-					}`}
+					className={`p-3 d-flex justify-content-between rounded-3 cursor-pointer ${isMenuOpen ? 'text-bg-success' : 'text-muted'
+						}`}
 					onClick={() => setIsMenuOpen((s) => !s)}
 				>
 					{title}
@@ -27,7 +27,9 @@ const DropDownMenu = ({ title, options }) => {
 								className="fw-bold hover-success"
 								key={idx}
 							>
-								{el}
+								<Link to={`/add/${el}`} key={idx}>
+									{el}
+								</Link>
 							</ListGroup.Item>
 						))}
 					</ListGroup>
