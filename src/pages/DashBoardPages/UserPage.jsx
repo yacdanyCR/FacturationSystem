@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import UserDetails from '../../components/DashBoardComponents/UserComponents/UserDetails'
+import UserDetails from '../../components/DashBoardComponents/UserManagmentPage/UserDetails'
 
 export const UserPage = () => {
     return (

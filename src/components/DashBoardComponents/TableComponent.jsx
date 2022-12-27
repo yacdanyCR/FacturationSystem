@@ -1,15 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useState } from 'react'
 import { Table } from 'react-bootstrap'
 
 export const TableComponent = (props) => {
+    const [apiKey, setApiKey] = useState([]);
+
+    useEffect(() => {
+        if (props.apiData.length > 0) {
+            const keys = Object.keys(props.apiData[0]);
+            setApiKey(keys);
+        }
+
+    }, [props.apiData])
+
     return (
         <>
             <Table bordered hover responsive className="mb-0">
                 <thead>
                     <tr>
-                        {props.thTableProps.map((el) => {
+                        {props.thTableProps.map((el, index) => {
                             return (
-                                <th>
+                                <th key={index}>
                                     {el}
                                 </th>
                             )
@@ -17,11 +28,13 @@ export const TableComponent = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    {props.apiData.map((el) => {
+                        return (
+                            <td>
+                                {el.username}
+                            </td>
+                        )
+                    })}
                 </tbody>
             </Table>
         </>

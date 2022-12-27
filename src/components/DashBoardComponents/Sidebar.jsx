@@ -6,6 +6,8 @@ import DropDownMenu from './DropDownMenu.jsx';
 import { useEffect, useState } from 'react';
 import Alert from 'react-bootstrap/Alert';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { Link } from 'react-router-dom';
+import { FaGithub } from "react-icons/fa";
 
 const userManagmentOptions = ['users', 'profiles', 'groups'];
 const businessSetupOptions = [
@@ -57,13 +59,15 @@ const Sidebar = () => {
 					) : (
 						<ListGroup>
 							{searchResult.map((el, idx) => (
-								<ListGroup.Item
-									action
-									className="fw-bold hover-success"
-									key={idx}
-								>
-									{el}
-								</ListGroup.Item>
+								<Link to={`/add/${el}`}>
+									<ListGroup.Item
+										action
+										className="fw-bold hover-success"
+										key={idx}
+									>
+										{el}
+									</ListGroup.Item>
+								</Link>
 							))}
 						</ListGroup>
 					)}
@@ -82,7 +86,13 @@ const Sidebar = () => {
 						options={userManagmentOptions}
 					/>
 
-					<div className="mt-5 text-muted">License Management</div>
+					<div className="mt-5 text-muted d-flex align-items-center justify-content-center">
+
+						<a href="https://github.com/yacdanyCR" target={"_blank"} rel="noreferrer">
+							<FaGithub color='white' size={30} />
+						</a>
+
+					</div>
 				</>
 			)}
 		</section>

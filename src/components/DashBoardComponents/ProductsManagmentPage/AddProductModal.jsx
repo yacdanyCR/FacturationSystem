@@ -1,32 +1,31 @@
 import React, { useRef, useState } from 'react'
-import { Modal, Form, Button, Alert } from 'react-bootstrap'
+import { Modal, Form, Button } from 'react-bootstrap'
 
-export const AddProductModal = ({ show, handleClose, setIsAddNew }) => {
+export const AddProductModal = ({ show, handleClose, setIsAddNew, setProduct }) => {
     const formRef = useRef(null);
-    const [product, setProduct] = useState(
+    const [newData, setNewData] = useState(
         {
             code: 0,
             name: "",
             existences: 0,
             price: 0,
             iva: 0
-        }
-    )
-
-    const [errorMessage, setErrorMessage] = useState('');
+        })
 
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
 
-        setProduct((prev) => {
+        setNewData((prev) => {
             return { ...prev, [name]: value }
         })
     }
 
     const handleAddProduct = async (e) => {
         e.preventDefault();
-        console.log(product)
+        setProduct((prev) => {
+            return [...prev, newData]
+        });
         setIsAddNew(false);
     };
 
@@ -99,16 +98,6 @@ export const AddProductModal = ({ show, handleClose, setIsAddNew }) => {
                                 onChange={(e) => handleChange(e)}
                             />
                         </Form.Group>
-
-                        {errorMessage && (
-                            <Alert
-                                variant="danger"
-                                dismissible
-                                onClose={() => setErrorMessage('')}
-                            >
-                                {errorMessage}
-                            </Alert>
-                        )}
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
@@ -117,7 +106,6 @@ export const AddProductModal = ({ show, handleClose, setIsAddNew }) => {
                         className="me-auto"
                         onClick={(e) => {
                             formRef.current.reset();
-                            setErrorMessage('');
                         }}
                     >
                         Reset feilds

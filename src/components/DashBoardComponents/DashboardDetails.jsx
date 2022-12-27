@@ -8,20 +8,10 @@ import DownloadIcon from '@mui/icons-material/Download';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import BlockIcon from '@mui/icons-material/Block';
-import AddUserModal from './AddUserModal.jsx';
 import { useRef, useState } from 'react';
 import DatePicker from './DatePicker.jsx';
-import UsersTable from './UsersTable.jsx';
 
 const DashboardDetails = () => {
-	const [isAddNew, setIsAddNew] = useState(false);
-	const [users, setUsers] = useState({
-		loading: false,
-		error: false,
-		data: [],
-	});
-
-	// filters state
 	const [filters, setFilters] = useState({});
 	const [checkBoxFilters, setCheckBoxFilter] = useState([]);
 	const [startDate, setStartDate] = useState(null);

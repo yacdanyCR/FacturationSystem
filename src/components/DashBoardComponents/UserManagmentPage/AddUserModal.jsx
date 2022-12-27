@@ -3,9 +3,9 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
-const AddUserModal = ({ handleClose, show, setIsAddNew }) => {
+const AddUserModal = ({ handleClose, show, setIsAddNew, setUser }) => {
     const formRef = useRef(null);
-    const [user, setUser] = useState(
+    const [newData, setNewData] = useState(
         {
             username: "",
             email: "",
@@ -18,14 +18,17 @@ const AddUserModal = ({ handleClose, show, setIsAddNew }) => {
         const name = e.target.name;
         const value = e.target.value;
 
-        setUser((prev) => {
+        setNewData((prev) => {
             return { ...prev, [name]: value }
         })
     }
     const handleAddUser = (e) => {
         e.preventDefault();
         setIsAddNew(false);
-        console.log(user);
+        setUser((prev) => {
+            return [...prev, newData]
+        });
+
     }
     return (
         <>
