@@ -13,7 +13,7 @@ const businessSetupOptions = [
 	'business option2',
 	'business option3',
 ];
-const atmSettingsOptions = ['ATM option1', 'ATM option2', 'ATM option3'];
+const atmSettingsOptions = ['Product', 'Clients', 'User'];
 const allOptions = [
 	...userManagmentOptions,
 	...atmSettingsOptions,
@@ -75,7 +75,7 @@ const Sidebar = () => {
 						<span className="ms-4 fw-bold ">Dashboard</span>
 					</div>
 					<div className="mb-3 text-muted ">SETTINGS</div>
-					<DropDownMenu title="ATM Settings" options={atmSettingsOptions} />
+					<DropDownMenu title="Managment" options={atmSettingsOptions} />
 					<DropDownMenu title="Business Setup" options={businessSetupOptions} />
 					<DropDownMenu
 						title="User Management"

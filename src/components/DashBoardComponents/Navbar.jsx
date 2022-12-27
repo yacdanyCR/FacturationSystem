@@ -1,9 +1,6 @@
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import Nav from 'react-bootstrap/Nav';
 import { default as BootstrapNavbar } from 'react-bootstrap/Navbar';
-import Badge from 'react-bootstrap/Badge';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import moment from 'moment/moment.js';
 
@@ -30,19 +27,6 @@ function Navbar({ isOpen, setIsOpen }) {
 			<BootstrapNavbar.Toggle aria-controls="responsive-BootstrapNavbar-nav" />
 			<BootstrapNavbar.Collapse id="responsive-BootstrapNavbar-nav">
 				<Nav className="ms-auto">
-					<Nav.Link>
-						<HelpOutlineOutlinedIcon />
-					</Nav.Link>
-					<Nav.Link className="position-relative">
-						<NotificationsIcon />
-						<Badge
-							pill
-							bg="danger"
-							className="position-absolute top-0 end-md-0"
-						>
-							5
-						</Badge>
-					</Nav.Link>
 					<NavDropdown title={'User Name'} id="Admin-nav-dropdown">
 						<NavDropdown.Item>Option 1</NavDropdown.Item>
 						<NavDropdown.Divider />
